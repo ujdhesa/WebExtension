@@ -10,7 +10,6 @@
         "128": "img/icon128.png"
     },
     "browser_action": {
-        "browser_style": true,
         "default_icon": "img/icon48.png",
         "default_title": "__MSG_name__",
         "default_popup": "html/welcome.html"
@@ -19,21 +18,25 @@
         "page": "html/background.html"
     },
     "chrome_settings_overrides": {
-        "homepage": "https://www.qwant.com/?client=qwant-firefox",
+        "homepage": "https://www.qwant.com/?client=qwant-chrome",
         "search_provider": {
             "name": "Qwant.com",
             "keyword": "q",
-            "search_url": "https://www.qwant.com/?q={searchTerms}&client=qwant-firefox",
+            "search_url": "https://www.qwant.com/?q={searchTerms}&client=qwant-chrome",
             "favicon_url": "https://www.qwant.com/favicon.ico",
-            "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=qwant-firefox",
+            "suggest_url": "https://api.qwant.com/api/suggest/?q={searchTerms}&client=qwant-chrome",
+            "image_url": "https://www.qwant.com/?q={searchTerms}&t=images&client=qwant-chrome",
+            "encoding": "UTF-8",
             "is_default": true
-        }
+        },
+        "startup_pages": [
+            "https://www.qwant.com/?client=qwant-chrome"
+        ]
     },
     "omnibox": {
-        "keyword": "q"
+        "keyword": "qwant"
     },
     "permissions": [
-        "browserSettings",
         "contextMenus",
         "storage",
         "tabs",

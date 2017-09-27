@@ -6,7 +6,7 @@ var extensionInstalled = true;
 
 document.addEventListener("qwant_website_login", function () {
     var qwantUser = JSON.parse(localStorage.getItem('user'));
-    browser.runtime.sendMessage({
+    chrome.runtime.sendMessage({
         name: "qwant_website_login",
         username: qwantUser.username,
         avatar: qwantUser.avatar,
@@ -16,38 +16,38 @@ document.addEventListener("qwant_website_login", function () {
 
 document.addEventListener("qwant_website_logout", function () {
     console.log("events.js: qwant_website_logout");
-    browser.runtime.sendMessage({name: "qwant_website_logout"});
+    chrome.runtime.sendMessage({name: "qwant_website_logout"});
 });
 
 document.addEventListener("qwant_extension_forced_logout", function () {
-    browser.runtime.sendMessage({name: "qwant_extension_forced_logout"});
+    chrome.runtime.sendMessage({name: "qwant_extension_forced_logout"});
 });
 
 document.addEventListener("qwant_website_bookmark_created", function () {
-    browser.runtime.sendMessage({name: "qwant_website_bookmark_created"});
+    chrome.runtime.sendMessage({name: "qwant_website_bookmark_created"});
 });
 
 document.addEventListener("qwant_website_bookmark_deleted", function () {
-    browser.runtime.sendMessage({name: "qwant_website_bookmark_deleted"});
+    chrome.runtime.sendMessage({name: "qwant_website_bookmark_deleted"});
 });
 
 document.addEventListener("qwant_website_open_extension", function () {
-    browser.runtime.sendMessage({name: "qwant_website_open_extension"});
+    chrome.runtime.sendMessage({name: "qwant_website_open_extension"});
 });
 
 document.addEventListener("qwant_website_is_tp_enabled", function () {
-    browser.runtime.sendMessage({name: "qwant_website_is_tp_enabled"});
+    chrome.runtime.sendMessage({name: "qwant_website_is_tp_enabled"});
 });
 
 document.addEventListener("qwant_website_tp_on", function () {
-    browser.runtime.sendMessage({name: "qwant_website_tp_on"});
+    chrome.runtime.sendMessage({name: "qwant_website_tp_on"});
 });
 
 document.addEventListener("qwant_website_tp_off", function () {
-    browser.runtime.sendMessage({name: "qwant_website_tp_off"});
+    chrome.runtime.sendMessage({name: "qwant_website_tp_off"});
 });
 
-browser.runtime.onMessage.addListener((message, sender, callback) => {
+chrome.runtime.onMessage.addListener((message, sender, callback) => {
     switch (message.name) {
         case "qwant_extension_login":
             localStorage.setItem('userExtension', JSON.stringify({
